@@ -18,7 +18,16 @@ use App\Http\Controllers\usercontroller;
 /*Route::get('/', function () {
     return view('welcome');
 });*/
-Route::get('/welcome',[pagescontroller::class,'welcome'])->name('welcome');
+Route::get('/',[pagescontroller::class,'welcome'])->name('welcome');
 Route::get('/login',[pagescontroller::class,'login'])->name('users.login');
+Route::post('/login',[pagescontroller::class,'logincheck'])->name('users.login.check');
+Route::get('/user/dashboard',[pagescontroller::class,'dashboard'])->name('users.userdashboard');
+Route::get('/admin/dashboard',[pagescontroller::class,'admin_dashboard'])->name('admin.userdashboard');
+
+Route::get('/account/details',[pagescontroller::class,'account_details'])->name('account.details');
+
+Route::get('/user/details/{id}',[pagescontroller::class,'user_details'])->name('user.details');
+
+
 Route::get('/register',[pagescontroller::class,'register'])->name('users.registration');
 Route::post('/register',[usercontroller::class,'userregistration'])->name('user.registration.submit');
